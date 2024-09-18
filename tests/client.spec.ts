@@ -10,10 +10,10 @@ test.describe('Client ', () => {
         loginPage = new LoginPage(page);
         clientPage = new ClientPage(page);
 
-       
-        await loginPage.goto(); 
-        await loginPage.login('tester01', 'GteteqbQQgSr88SwNExUQv2ydb7xuf8c'); 
-    
+
+        await loginPage.goto();
+        await loginPage.login('tester01', 'GteteqbQQgSr88SwNExUQv2ydb7xuf8c');
+        // Navigate to the clients page after login
         await clientPage.gotoClientsPage();
     });
 
@@ -38,5 +38,13 @@ test.describe('Client ', () => {
         await clientPage.verifyClientDetails(newName, newEmail, newTelephone);
     });
 
+    test('delete a client', async () => {
+        const name = 'John Doe';
+
+        await clientPage.deleteClient(name);
+
+        
+        await expect(clientPage.clientsList.locator(`text=${name}`)).not.toBeVisible();
+    });
 
 });
