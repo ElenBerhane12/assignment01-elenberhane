@@ -25,34 +25,34 @@ export class RoomPage {
   }
 
   async gotoRoomsPage() {
-    await this.page.goto('http://localhost:3000/rooms'); // Adjust URL if needed
-    await this.page.waitForLoadState('networkidle'); // Wait for the network to be idle
+    await this.page.goto('http://localhost:3000/rooms'); 
+    await this.page.waitForLoadState('networkidle'); 
   }
 
   async createRoom(category: string, number: string, floor: string, available: boolean, price: string, features: string) {
-    // Ensure the page is fully loaded and the element is visible
-    await this.page.waitForLoadState('networkidle'); // Ensure the page is fully loaded
+    
+    await this.page.waitForLoadState('networkidle'); 
     console.log('Waiting for category select dropdown to become visible');
     try {
-      await this.categorySelect.waitFor({ state: 'visible', timeout: 60000 }); // Increase timeout if needed
+      await this.categorySelect.waitFor({ state: 'visible', timeout: 60000 }); 
     } catch (error) {
       console.error('Category select dropdown did not become visible:', error);
-      await this.page.screenshot({ path: 'debug.png' }); // Take a screenshot for debugging
-      throw error; // Rethrow error after taking screenshot
+      await this.page.screenshot({ path: 'debug.png' }); 
+      throw error; 
     }
 
-    // Check if the element is visible
+    
     const isCategorySelectVisible = await this.categorySelect.isVisible();
     if (!isCategorySelectVisible) {
       console.error('Category select dropdown is not visible');
-      await this.page.screenshot({ path: 'debug.png' }); // Take a screenshot for debugging
+      await this.page.screenshot({ path: 'debug.png' }); 
       throw new Error('Category select dropdown is not visible');
     }
 
-    // Select the option from the dropdown
+    
     await this.categorySelect.selectOption({ label: category });
 
-    // Fill in the other fields
+    
     await this.numberInput.fill(number);
     await this.floorInput.fill(floor);
     if (available) {
@@ -63,11 +63,11 @@ export class RoomPage {
     await this.priceInput.fill(price);
     await this.featuresInput.fill(features);
 
-    // Click the save button
+  
     await this.saveBtn.click();
 
-    // Wait for a brief period to ensure the action is completed
-    await this.page.waitForTimeout(3000); // Adjust if necessary
+    
+    await this.page.waitForTimeout(3000); 
   }
 
   async verifyRoomDetails(category: string, number: string, floor: string, available: boolean, price: string, features: string) {
@@ -79,10 +79,10 @@ export class RoomPage {
   }
 
   async editRoom(oldNumber: string, category: string, number: string, floor: string, available: boolean, price: string, features: string) {
-    // Implement the edit functionality here
+    
   }
 
   async deleteRoom(number: string) {
-    // Implement the delete functionality here
+    
   }
 }
