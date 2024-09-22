@@ -3,7 +3,7 @@ import { LoginPage } from '../pages/login.page';
 import { CreateClientsPage } from '../pages/clients/create_clients_page';
 import { ViewClientsPage } from '../pages/clients/view_clients_page';
 
-test('User can create a new client', async ({ page }) => {
+test(' create a new client', async ({ page }) => {
     const loginPage = new LoginPage(page);
     const createClientsPage = new CreateClientsPage(page);
     const viewClientsPage = new ViewClientsPage(page);
