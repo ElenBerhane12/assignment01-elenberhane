@@ -1,7 +1,7 @@
 import { Locator, Page, expect } from '@playwright/test';
 
 export class CreateClientsPage {
-  // Attributes/Locators
+
   readonly page: Page;
   readonly nameTF: Locator; 
   readonly emailTF: Locator; 
