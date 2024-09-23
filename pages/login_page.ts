@@ -1,25 +1,34 @@
 import { Locator, Page } from '@playwright/test';
 
 export class LoginPage {
+    // Attributes/Locators
     readonly page: Page;
-    readonly usernameInput: Locator;
-    readonly passwordInput: Locator;
-    readonly loginBtn: Locator;
+    readonly usernameTF: Locator; // Text field for username
+    readonly passwordTF: Locator; // Text field for password
+    readonly loginBTN: Locator;   // Button to perform login
 
+    // Constructor
     constructor(page: Page) {
         this.page = page;
-        this.usernameInput = page.locator('#app > div > form > div:nth-child(1) > input[type=text]');
-        this.passwordInput = page.locator('#app > div > form > div:nth-child(2) > input[type=password]');
-        this.loginBtn = page.locator('#app > div > form > div.field.action > button');
+        
+        // Initialize the locators
+        this.usernameTF = page.locator('input[name="username"]'); // Adjust the selector as needed
+        this.passwordTF = page.locator('input[name="password"]'); // Adjust the selector as needed
+        this.loginBTN = page.locator('button[type="submit"]');    // Adjust the selector as needed
     }
 
-    async goto() {
-        await this.page.goto('http://localhost:3000/login');
-    }
+    // Methods
 
-    async login(username: string, password: string) {
-        await this.usernameInput.fill(username);
-        await this.passwordInput.fill(password);
-        await this.loginBtn.click();
+    // Method to perform login
+    async performLogin(username: string, password: string) {
+        // Fill in the username and password fields
+        await this.usernameTF.fill(username);
+        await this.passwordTF.fill(password);
+        
+        // Click the login button
+        await this.loginBTN.click();
+        
+        // Wait for the page to load after login
+        await this.page.waitForLoadState('networkidle'); // Adjust as needed based on your application
     }
 }
