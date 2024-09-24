@@ -3,11 +3,11 @@ import { Locator, Page, expect } from '@playwright/test';
 export class CreateClientsPage {
  
   readonly page: Page;
-  readonly nameinput: Locator; // TextField for name
-  readonly emailinput: Locator; // TextField for email
-  readonly telephoneinput: Locator; // TextField for telephone
-  readonly saveBTN: Locator; // Button to save the client
-  readonly backBTN: Locator; // Button to go back
+  readonly nameinput: Locator; 
+  readonly emailinput: Locator; 
+  readonly telephoneinput: Locator; 
+  readonly saveBTN: Locator; 
+  readonly backBTN: Locator; 
 
 
   constructor(page: Page) {
