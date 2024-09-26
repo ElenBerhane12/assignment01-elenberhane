@@ -14,10 +14,10 @@ export class CreateClientsPage {
     this.page = page;
 
    
-    this.nameinput = page.locator('input[name="name"]'); 
-    this.emailinput = page.locator('input[name="email"]'); 
-    this.telephoneinput = page.locator('input[name="telephone"]'); 
-    this.saveBTN = page.locator('button[type="submit"]'); 
+    this.nameinput = page.locator('div').filter({ hasText: /^Name$/ }).getByRole('textbox'); 
+    this.emailinput = page.locator('input[type="email"]');
+    this.telephoneinput = page.locator('div').filter({ hasText: /^Telephone$/ }).getByRole('textbox'); 
+    this.saveBTN = page.locator('div').filter({ hasText: /^Telephone$/ }).getByRole('textbox'); 
     this.backBTN = page.locator('button#back'); 
   }
 
@@ -51,4 +51,5 @@ export class CreateClientsPage {
     await this.page.locator('button#confirm-delete').click(); 
     await this.page.waitForLoadState('networkidle'); 
   }
+  
 }

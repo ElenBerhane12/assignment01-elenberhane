@@ -14,7 +14,7 @@ export class DashboardPage {
     this.page = page;
 
   
-    this.logoutBtn = page.locator('button#logout'); 
+    this.logoutBtn = page.getByRole('button', { name: 'Logout' }); 
     this.viewRoomBtn = page.locator('a[href="/rooms"]'); 
     this.viewReservationBtn = page.locator('a[href="/reservations"]'); 
     this.viewClientsBtn = page.locator('a[href="/clients"]'); 

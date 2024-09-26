@@ -3,8 +3,8 @@ import { Locator, Page } from '@playwright/test';
 export class LoginPage {
     // Attributes/Locators
     readonly page: Page;
-    readonly usernameTF: Locator;
-    readonly passwordTF: Locator;
+    readonly usernameinput: Locator;
+    readonly passwordinput: Locator;
     readonly loginBTN: Locator;
 
     // Constructor
@@ -12,17 +12,17 @@ export class LoginPage {
         this.page = page;
 
         // Initialize the locators
-        this.usernameTF = page.locator('input[name="username"]');
-        this.passwordTF = page.locator('input[name="password"]');
-        this.loginBTN = page.locator('button[type="submit"]');
+        this.usernameinput = page.locator('input[type="text"]');
+        this.passwordinput = page.locator('input[type="text"]');
+        this.loginBTN = page.locator('input[type="text"]');
     }
 
 
 
     async performLogin(username: string, password: string) {
 
-        await this.usernameTF.fill(username);
-        await this.passwordTF.fill(password);
+        await this.usernameinput.fill("tester01");
+        await this.passwordinput.fill("GteteqbQQgSr88SwNExUQv2ydb7xuf8c");
 
 
         await this.loginBTN.click();

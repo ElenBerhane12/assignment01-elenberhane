@@ -9,18 +9,20 @@ export class EditClientPage {
   readonly saveBTN: Locator;
   readonly backBTN: Locator;
   readonly deleteBTN: Locator;
+  readonly editBTN: Locator
 
 
   constructor(page: Page) {
     this.page = page;
 
     // Initialize locators
-    this.namninput = page.locator('input[name="name"]');
-    this.emailinput = page.locator('input[name="email"]');
-    this.telephoneinput = page.locator('input[name="telephone"]');
-    this.saveBTN = page.locator('button[type="submit"]');
-    this.backBTN = page.locator('button#back');
-    this.deleteBTN = page.locator('button#delete');
+    this.namninput = page.locator('div').filter({ hasText: /^Name$/ }).getByRole('textbox');
+    this.emailinput = page.locator('input[type="email"]');
+    this.telephoneinput = page.locator('div').filter({ hasText: /^Telephone$/ }).getByRole('textbox');
+    this.saveBTN = page.getByText('Save');
+    this.backBTN = page.getByRole('link', { name: 'Back' });
+    this.deleteBTN = page.getByText('Delete');
+    this.editBTN = page.getByText('Edit');
   }
 
 
