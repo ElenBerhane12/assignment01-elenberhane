@@ -27,20 +27,20 @@ test.describe('Client Management Tests', () => {
     });
 
 
-    test('01 - Login', async ({ page }) => {
+    test('test 01 - Login', async ({ page }) => {
 
         await expect(page.getByText('Welcome tester01!')).toBeVisible();
     });
 
 
-    test('02 - Navigate to Clients Page', async ({ page }) => {
+    test('test 02 - Navigate to Clients Page', async ({ page }) => {
         const dashboardPage = new DashboardPage(page);
         await dashboardPage.navigateToClients();
         await expect(page.getByText('Clients')).toBeVisible();
     });
 
 
-    test('03 - Create New Client', async ({ page }) => {
+    test('test 03 - Create New Client', async ({ page }) => {
         const dashboardPage = new DashboardPage(page);
         const viewClientsPage = new ViewClientsPage(page);
         const createClientsPage = new CreateClientsPage(page);
@@ -54,7 +54,7 @@ test.describe('Client Management Tests', () => {
 
     });
 
-    test('04 - Edit Client', async ({ page }) => {
+    test('test 04 - Edit Client', async ({ page }) => {
         const dashboardPage = new DashboardPage(page);
         const viewClientsPage = new ViewClientsPage(page);
         const editClientPage = new EditClientPage(page);
@@ -71,7 +71,7 @@ test.describe('Client Management Tests', () => {
     });
 
 
-    test('05 - Delete Client', async ({ page }) => {
+    test('test 05 - Delete Client', async ({ page }) => {
         const dashboardPage = new DashboardPage(page);
         const viewClientsPage = new ViewClientsPage(page);
 
