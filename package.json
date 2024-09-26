@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test"
+    "run tests": "npx playwright test",
+    "run tests -ui": "npx playwright test --ui",
+    "test:debug": "playwright test --debug"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +18,8 @@
   },
   "dependencies": {
     "dotenv": "^16.4.5"
+  },
+  "directories": {
+    "test": "tests"
   }
 }
