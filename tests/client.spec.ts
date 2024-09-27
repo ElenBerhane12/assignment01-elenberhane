@@ -81,7 +81,7 @@ test.describe('Client  Tests', () => {
 
     });
 
-    test('06 - View Client Details', async ({ page }) => {
+    test('test 06 - View Client Details', async ({ page }) => {
         const dashboardPage = new DashboardPage(page);
         const viewClientsPage = new ViewClientsPage(page);
 
