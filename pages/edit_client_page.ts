@@ -38,19 +38,19 @@ export class EditClientPage {
     await this.emailinput.fill(email);
     await this.telephoneinput.fill(telephone);
     await this.saveBTN.click();
-    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForTimeout(2000);
   }
 
 
   async deleteClient() {
     await this.deleteBTN.click();
     await this.page.locator('button#confirm-delete').click();
-    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForTimeout(2000);
   }
 
 
   async navigateBack() {
     await this.backBTN.click();
-    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForTimeout(2000);
   }
 }

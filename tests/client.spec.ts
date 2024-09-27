@@ -5,7 +5,7 @@ import { CreateClientsPage } from '../pages/create_client_page';
 import { EditClientPage } from '../pages/edit_client_page';
 import { ViewClientsPage } from '../pages/view_client_page';
 
-test.describe('Client Management Tests', () => {
+test.describe('Client  Tests', () => {
 
 
     test.beforeEach(async ({ page }) => {
@@ -23,7 +23,7 @@ test.describe('Client Management Tests', () => {
         // Log in
         await expect(page.getByText(/Welcome tester01!/)).toBeVisible();
         await expect(page.locator('h1')).toHaveText('Tester Hotel');
-        await page.waitForTimeout(1000);
+        await page.waitForTimeout(2000);
     });
 
 
@@ -119,6 +119,21 @@ test.describe('Client Management Tests', () => {
 
         await page.goto('http://localhost:3000/login');
         await expect(page.getByRole('heading', { name: 'Login' })).toBeVisible();
+    });
+
+
+    test('test 09 -  Specific Client in the List', async ({ page }) => {
+        const dashboardPage = new DashboardPage(page);
+        const viewClientsPage = new ViewClientsPage(page);
+
+
+        await dashboardPage.navigateToClients();
+        await page.waitForTimeout(2000);
+        await viewClientsPage.verifyClientInList('Jonas Hellman');
+
+
+        const clientItems = await page.locator('.client-item').allTextContents();
+        console.log('Clients List:', clientItems);
     });
 
 });

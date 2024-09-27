@@ -26,30 +26,30 @@ export class DashboardPage {
   
   async performLogout() {
     await this.logoutBtn.click();
-    await this.page.waitForLoadState('networkidle'); 
+    await this.page.waitForTimeout(2000); 
   }
 
   
   async navigateToClients() {
     await this.viewClientsBtn.click();
-    await this.page.waitForLoadState('networkidle'); 
+    await this.page.waitForTimeout(2000); 
   }
 
   
   async navigateToBills() {
     await this.viewBillBtn.click();
-    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForTimeout(2000);
   }
 
   
   async navigateToRoom() {
     await this.viewRoomBtn.click();
-    await this.page.waitForLoadState('networkidle'); 
+    await this.page.waitForTimeout(2000); 
   }
 
   
   async navigateToReservation() {
     await this.viewReservationBtn.click();
-    await this.page.waitForLoadState('networkidle'); 
+    await this.page.waitForTimeout(2000); 
   }
 }

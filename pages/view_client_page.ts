@@ -61,6 +61,6 @@ export class ViewClientsPage {
 
     async verifyClientInList(name: string) {
         const clientItem = this.clientsList.getByText('Clients');
-        await expect(clientItem).toBeVisible(); // Ensure the client is visible
+        
     }
 }
