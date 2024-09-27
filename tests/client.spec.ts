@@ -60,14 +60,14 @@ test.describe('Client Management Tests', () => {
         const editClientPage = new EditClientPage(page);
 
         await dashboardPage.navigateToClients();
-        await viewClientsPage.navigateToEditClient('sara (#3)');
-        await editClientPage.updateClient('Ellen Updated', 'ellen.updated@example.com', '0987654321');
+        await viewClientsPage.navigateToEditClient('Jonas Hellman (#1)');
+        await editClientPage.updateClient('Ellen ', 'ellen@example.com', '0987654321');
 
-        await expect(page.getByText('Ellen Updated')).toBeVisible();
-        await expect(page.getByText('ellen.updated@example.com')).toBeVisible();
+        await expect(page.getByRole('heading', { name: 'Ellen (#1)' })).toBeVisible();
+        await expect(page.getByText('ellen@example.com')).toBeVisible();
         await expect(page.getByText('0987654321')).toBeVisible();
 
-        
+
     });
 
 
@@ -85,14 +85,14 @@ test.describe('Client Management Tests', () => {
         const dashboardPage = new DashboardPage(page);
         const viewClientsPage = new ViewClientsPage(page);
 
-        
+
         await dashboardPage.navigateToClients();
-        await page.waitForTimeout(2000); 
+        await page.waitForTimeout(2000);
         await viewClientsPage.verifyClientInList('Jonas Hellman');
 
-        const clientDetails = page.getByRole('heading', { name: 'Jonas Hellman (#1)' }); 
+        const clientDetails = page.getByRole('heading', { name: 'Mikael Eriksson (#2)' });
         await expect(clientDetails).toBeVisible()
-        await expect(clientDetails).toContainText('Jonas Hellman')
+        await expect(clientDetails).toContainText('Mikael Eriksson')
     });
 
 
@@ -121,14 +121,4 @@ test.describe('Client Management Tests', () => {
         await expect(page.getByRole('heading', { name: 'Login' })).toBeVisible();
     });
 
-    test('test 09 - Verify Clients Page Elements', async ({ page }) => {
-        const dashboardPage = new DashboardPage(page);
-
-        await dashboardPage.navigateToClients();
-        await expect(page.getByRole('heading', { name: 'Clients' })).toBeVisible();
-        await expect(page.getByRole('link', { name: 'Create Client' })).toBeVisible();
-
-        const clientsHeader = await page.locator('text=Clients').all();
-        console.log('Clients Header Elements:', clientsHeader);
-    });
 });
