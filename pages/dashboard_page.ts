@@ -21,7 +21,7 @@ export class DashboardPage {
     this.viewBillBtn = page.locator('a[href="/bills"]'); 
   }
 
-  // Methods
+
 
   
   async performLogout() {

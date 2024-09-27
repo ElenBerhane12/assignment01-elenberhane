@@ -21,7 +21,7 @@ export class CreateClientsPage {
     this.backBTN = page.locator('button#back'); 
   }
 
-  // Methods
+
 
 
   async navigateToClientView() {

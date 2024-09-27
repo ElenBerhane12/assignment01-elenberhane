@@ -15,7 +15,7 @@ export class EditClientPage {
   constructor(page: Page) {
     this.page = page;
 
-    // Initialize locators
+
     this.namninput = page.locator('div').filter({ hasText: /^Name$/ }).getByRole('textbox');
     this.emailinput = page.locator('input[type="email"]');
     this.telephoneinput = page.locator('div').filter({ hasText: /^Telephone$/ }).getByRole('textbox');
@@ -32,7 +32,7 @@ export class EditClientPage {
     await expect(this.namninput).toBeVisible();
   }
 
-  // Update client details
+  
   async updateClient(name: string, email: string, telephone: string) {
     await this.namninput.fill(name);
     await this.emailinput.fill(email);
