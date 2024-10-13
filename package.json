@@ -4,15 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "run tests": "npx playwright test",
-    "run tests -ui": "npx playwright test --ui",
-    "test:debug": "playwright test --debug"
+    "test": "playwright test",
+    "test-ui": "playwright test --ui"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@faker-js/faker": "^9.0.1",
+    "@faker-js/faker": "^9.0.3",
     "@playwright/test": "^1.47.1",
     "@types/node": "^22.5.5"
   },
